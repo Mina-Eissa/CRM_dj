@@ -26,7 +26,7 @@ pip install -r requirements.txt
 ```
 ### 3.Install MySQL DBMS
 
-If MySQL is not installed on your machine, download and install it from the MySQL official website(https://dev.mysql.com/downloads/).
+If MySQL is not installed on your machine, download and install it from the [MySQL official website](https://dev.mysql.com/downloads/).
 
 ### 4.Setup the Database
 
