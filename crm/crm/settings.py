@@ -110,7 +110,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Cairo'
+DATETIME_FORMAT = 'l, j-m-Y, H:i:s'  # Example: Monday, 1-12-2024, 14:30:45
 
 USE_I18N = True
 
