@@ -10,6 +10,7 @@ class Member(models.Model):
     Gender = models.CharField(max_length=50, choices=_Gen_type)
     bio = models.TextField(blank=True)
     birth_date = models.DateField()
+    password = models.CharField(max_length=255)
     # personal_image -> planned
     # wallpaper_image -> planned
 

@@ -1,3 +1,5 @@
-from django.shortcuts import render
+from .view.SignUp import SignUpView
+from .view.SignIn import SignInView
 
-# Create your views here.
+SignUp = SignUpView.as_view()
+SignIn = SignInView.as_view()
