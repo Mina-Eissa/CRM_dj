@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'api',
 ]
 
 MIDDLEWARE = [
@@ -76,11 +77,11 @@ WSGI_APPLICATION = 'crm.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'CRMDB',  
-        'USER': 'CRMDB_USER', 
-        'PASSWORD': 'CRMDB_PASS',  
-        'HOST': 'localhost',  
-        'PORT': '3306',  
+        'NAME': 'CRMDB',
+        'USER': 'CRMDB_USER',
+        'PASSWORD': 'CRMDB_PASS',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
 
