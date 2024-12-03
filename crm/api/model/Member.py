@@ -11,6 +11,8 @@ class Member(models.Model):
     bio = models.TextField(blank=True)
     birth_date = models.DateField()
     password = models.CharField(max_length=255)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
     # personal_image -> planned
     # wallpaper_image -> planned
 
