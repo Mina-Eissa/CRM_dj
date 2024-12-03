@@ -11,4 +11,7 @@ class SignInView(APIView):
         if serializer.is_valid():
             member = serializer.validated_data
             return Response({"message": f"Welcome {member.name}!"}, status=status.HTTP_200_OK)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+         # Check if the member exists with the provided email
+        if Member.objects.filter(email=request.data.get("email")).exists():
+            return Response({"message": "Invalid email or password"}, status=status.HTTP_400_BAD_REQUEST)
+        return Response({"message": f"{serializer.errors}"}, status=status.HTTP_400_BAD_REQUEST)

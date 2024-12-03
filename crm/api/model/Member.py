@@ -5,7 +5,7 @@ from django.utils import timezone
 class Member(models.Model):
     _Gen_type = [('Male', 'Male'), ('Female', 'Female')]
     name = models.CharField(max_length=100)
-    email = models.EmailField()
+    email = models.EmailField(unique=True)
     phone_number = models.CharField(max_length=50)
     Gender = models.CharField(max_length=50, choices=_Gen_type)
     bio = models.TextField(blank=True)

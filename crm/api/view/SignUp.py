@@ -6,8 +6,9 @@ from ..models import Member
 
 class SignUpView(APIView):
     def post(self, request):
+        print(request)
         serializer = MemberSignUpSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response({"message": "Member registered successfully!"}, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response({"message": f"{serializer.errors}"}, status=status.HTTP_400_BAD_REQUEST)
