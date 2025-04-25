@@ -21,6 +21,20 @@ export async function signUp(data) {
       "http://localhost:8000/api/signup/",
       data
     );
+    return { success: response.status === 201, data: response.data };
+  } catch (error) {
+    return {
+      success: false,
+      message: error.response?.data?.message || "An error occurred",
+    };
+  }
+}
+
+export async function homeMembersDisplay() {
+  try {
+    const response = await axios.get(
+      "http://localhost:8000/api/membersdisplay/"
+    );
     return { success: response.status === 200, data: response.data };
   } catch (error) {
     return {

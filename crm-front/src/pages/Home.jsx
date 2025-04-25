@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { homeMembersDisplay } from "../api/auth";
 import axios from "axios";
 import Navbar from "../components/Navbar";
 import MemberRecord from "../components/MemberRecord"
@@ -11,11 +12,28 @@ const Home = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Fetch data from API
-    axios.get("/api/members")
-      .then((response) => setMembers(response.data))
-      .catch((error) => console.error("Error fetching members:", error));
+    const fetchMembers = async () => {
+      try {
+        const result = await homeMembersDisplay(); // Get the result object
+        console.log(result); // Log the result to inspect its structure
+  
+        if (result.success) {
+          const membersData = result.data; // Access the data property
+          setMembers(membersData); // Set the members state directly
+          console.log(membersData); // Log the members data
+        } else {
+          console.error("Failed to fetch members:", result.message);
+        }
+      } catch (error) {
+        console.error("Error fetching members:", error);
+      }
+    };
+    fetchMembers();
   }, []);
+
+  useEffect(() => {
+    console.log(members); // This will log the updated members after state change
+  }, [members]);
 
   const handleLogout = () => {
     console.log("Logged out");
@@ -60,7 +78,7 @@ const Home = () => {
                 <th className="p-4">Actions</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="overflow-y-auto">
               {members.map((member) => (
                 <MemberRecord
                   key={member.id}

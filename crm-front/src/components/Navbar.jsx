@@ -3,7 +3,7 @@ import axios from "axios";
 
 // Navbar Component
 const Navbar = ({ onLogout }) => (
-  <nav className="bg-blue-600 p-4 flex justify-between items-center">
+  <nav className="bg-slate-800 p-3 flex justify-between items-center">
     <h1 className="text-white text-xl font-bold">Members Management</h1>
     <button
       onClick={onLogout}
